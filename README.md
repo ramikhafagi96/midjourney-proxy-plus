@@ -1,60 +1,63 @@
 # midjourney-proxy-plus
 
-[midjourney-proxy](https://github.com/novicezk/midjourney-proxy) 的plus版本，采用了全新模式。支持mj所有的指令和相关操作，精准匹配所有提交的任务。
+The plus version of [midjourney-proxy](https://github.com/novicezk/midjourney-proxy) with a new schema. It supports all commands and related operations of mj, and accurately matches all submitted tasks.
 
-## 开源版功能
-- [x] 支持 Imagine 指令和相关动作
-- [x] Imagine 时支持添加图片base64，作为垫图
-- [x] 支持 Blend(图片混合)、Describe(图生文) 指令
-- [x] 支持任务实时进度
-- [x] 支持中文prompt翻译，需配置百度翻译或gpt
-- [x] prompt 敏感词预检测，支持覆盖调整
-- [x] user-token 连接 wss，可以获取错误信息和完整功能
-- [x] 支持多账号配置，每个账号可设置对应的任务队列（参考 [MidJourney订阅级别](https://docs.midjourney.com/docs/plans) 调整）
-- [x] 任务存储支持内存、Redis
+## Open source features
+- [x] Support Imagine commands and related actions.
+- [x] Imagine supports adding image base64 as padding.
+- [x] Support Blend and Describe commands.
+- [x] Support real-time task progress
+- [x] Support Chinese prompt translation, need to configure Baidu translation or gpt.
+- [x] prompt sensitive word pre-detection, support override adjustment.
+- [x] user-token connects to wss for error messages and full functionality.
+- [x] support multi-account configuration, each account can set the corresponding task queue (refer to [MidJourney subscription level](https://docs.midjourney.com/docs/plans) adjustment)
+- [x] Task storage support in-memory, Redis
 
-## 先行版功能
-- [x] 支持开源版的所有功能
-- [x] 支持 Shorten(prompt分析) 指令
-- [x] 支持焦点移动: Pan ⬅️ ➡️ ⬆️ ⬇️
-- [x] 支持图片变焦: Zoom 🔍
-- [x] 支持局部重绘: Vary (Region) 🖌
-- [x] 支持几乎所有的关联按钮动作和🎛️ Remix模式，参考 [API接口说明-执行动作](./docs/api.md#3-%E6%89%A7%E8%A1%8C%E4%BB%BB%E5%8A%A1%E7%9A%84%E5%85%B3%E8%81%94%E5%8A%A8%E4%BD%9C)
-- [x] 支持获取图片的seed值
-- [x] 账号池持久化，动态维护
-- [x] 账号、任务存储支持内存、Redis、MySQL
-- [x] 支持获取账号/info、/settings信息
-- [x] 账号settings设置
-- [x] 内嵌 [管理后台页面](https://github.com/litter-coder/midjourney-proxy-admin)
+## Advance version features
+- [x] Support all features of the open source version
+- [x] Support Shorten(prompt analyze) command
+- [x] Focus shift support: Pan ⬅️ ➡️ ⬆️ ⬇️
+- [x] Support image zoom: Zoom 🔍
+- [x] Local redraw support: Vary (Region) 🖌
+- [x] Supports almost all associated button actions and 🎛️ Remix modes, refer to [API Interface Description - Performing Actions](. /docs/api.md#3-%E6%89%A7%E8%A1%8C%E4%BB%BB%E5%8A%A1%E7%9A%84%E5%85%B3%E8%81%94%E5%8A%A8%E4%BD%9C)
+- [x] Support for getting the seed value of an image
+- [x] Account pool persistence, dynamic maintenance
+- [x] Account, task storage support in-memory, Redis, MySQL
+- [x] Support get account /info, /settings information
+- [x] account settings settings
+- [x] Inline [admin backend page](https://github.com/litter-coder/midjourney-proxy-admin)
 
 
-## 获取方式
+## How to get
 
-微信扫码获取，备注mj先行版
+WeChat code scanning to get, note mj advance version
 
- <img src="https://raw.githubusercontent.com/litter-coder/midjourney-proxy-plus/main/docs/manager-qrcode.jpeg" width="240" alt="微信二维码"/>
+ <img src="https://raw.githubusercontent.com/litter-coder/midjourney-proxy-plus/main/docs/manager-qrcode.jpeg" width="240" alt="WeChat QR Code" />
 
 Telegram
 
- <img src="https://raw.githubusercontent.com/litter-coder/midjourney-proxy-plus/main/docs/telegram-qrcode.png" width="240" alt="Telegram二维码"/>
+ <img src="https://raw.githubusercontent.com/litter-coder/midjourney-proxy-plus/main/docs/telegram-qrcode.png" width="240" alt="" Telegram QR Code"/>
 
-加入我们即可获得
+Join us to get
 
-- midjourney-proxy的最新版本
-- [微信机器人最新版本](https://github.com/litter-coder/wechat-ai)
-- 及时维护，出问题优先修复
-- 您的意见和建议会被我们重点采纳
+- Latest version of midjourney-proxy
+- [The latest version of microsoft robot](https://github.com/litter-coder/wechat-ai)
+- Maintained in a timely manner, problems are prioritized for fixing
+- Your comments and suggestions will be taken into consideration.
 
-## 使用前提
-1. 注册并订阅 MidJourney，创建自己的频道，参考 https://docs.midjourney.com/docs/quick-start
-2. 获取用户Token、服务器ID、频道ID等：[获取方式](./docs/discord-params.md)
+## Prerequisites
+1. Register and subscribe to MidJourney, create your own channel, refer to https://docs.midjourney.com/docs/quick-start
+2. Get user token, server ID, channel ID, etc.: [Get method](. /docs/discord-params.md)
 
-## 配置项
-- mj.accounts: 参考 [账号池配置](./docs/config.md#%E8%B4%A6%E5%8F%B7%E6%B1%A0%E9%85%8D%E7%BD%AE%E5%8F%82%E8%80%83)
-- mj.account-store-type: 账号存储方式，默认in_memory(内存\重启后丢失)，可选redis、mysql
-- mj.task-store.type: 任务存储方式，默认in_memory(内存\重启后丢失)，可选redis、mysql
-- mj.task-store.timeout: 任务存储过期时间，过期后删除，默认30天。mysql存储不生效
-- mj.api-secret: 接口密钥，为空不启用鉴权；调用接口时需要加请求头 mj-api-secret
-- mj.translate-way: 中文prompt翻译成英文的方式，可选null(默认)、baidu、gpt、deepl
-- mj.translate-zh-way: describe、shorten等结果翻译成中文的方式，可选null(默认)、baidu、gpt、deepl
-- redis、mysql、翻译或更多配置查看 [配置项](./docs/config.md)
+## Configuration items
+- mj.accounts: refer to [Account Pool Configuration](. /docs/config.md#%E8%B4%A6%E5%8F%B7%E6%B1%A0%E9%85%8D%E7%BD%AE%E5%8F%82%E8%80%83)
+- mj.account-store-type: account storage type, default in_memory (memory \ lost after reboot), optional redis, mysql
+- mj.task-store.type: task store type, default in_memory (memory \ lost after reboot), optional redis, mysql
+- mj.task-store.timeout: expiration time of the task store, delete it after expiration, default 30 days. mysql store is not effective.
+- mj.api-secret: interface key, null does not enable authentication; need to add request header mj-api-secret when calling interface
+- mj.translate-way: the way to translate Chinese prompt to English, can choose null (default), baidu, gpt, deepl
+- mj.translate-zh-way: describe, shorten and other results translated into Chinese way, optional null (default), baidu, gpt, deepl
+- redis, mysql, translate or more configurations see [Configuration Items](. /docs/config.md)
+
+
+Translated with www.DeepL.com/Translator (free version)
